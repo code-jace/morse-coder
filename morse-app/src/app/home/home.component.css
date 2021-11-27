@@ -1,0 +1,18 @@
+.morse-output {
+    margin: 16px;
+    padding: 10px;
+    background-color: wheat !important;
+    font-family: monospace;
+}
+
+.flasher {
+    background-color: black;
+    height: 400px;
+    width: 100%;
+    margin-top: 16px;
+    border: black 1px solid;
+}
+
+.flasher.on {
+    background-color: white;
+}
