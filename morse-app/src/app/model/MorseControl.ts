@@ -20,7 +20,7 @@ export class MorseControl {
         } else if (value === ' ') {
             self.state = false;
             self.time = 5; // 7 long but allow for dark space on each end
-            self.value = ' ';
+            self.value = 'SPACE';
         }
     }
     

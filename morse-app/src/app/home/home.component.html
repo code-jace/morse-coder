@@ -10,13 +10,20 @@
             <textarea matInput [(ngModel)]="morseInput"></textarea>
         </mat-form-field>
         <mat-form-field appearance="fill">
-            <mat-label>Dit Length</mat-label>
+            <mat-label>Dit Length (ms)</mat-label>
             <input type="number" matInput [(ngModel)]="ditLength">   
         </mat-form-field>
     </div>
     <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px">
         <button mat-flat-button color="primary" [disabled]="!morseInput" (click)="textToMorseClick()">Translate</button>
         <button mat-flat-button color="primary" [disabled]="!controlArray" (click)="runFlasher()">Transmit</button>
+        <mat-slide-toggle [(ngModel)]="loopTransmit">Loop</mat-slide-toggle>
+        <span *ngIf="transmitting && controlArray" fxFill>
+            <mat-progress-bar
+                mode="determinate"
+                [value]="currentIndex/letterCount * 100"> 
+            </mat-progress-bar> <span *ngIf="letterCount > 0">{{percentTransmit()}}% sent</span>
+        </span>
     </div>          
 
     <div *ngIf="morseOutput" class="morse-output">
