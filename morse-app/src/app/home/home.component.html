@@ -1,14 +1,23 @@
 <mat-card>
 
-    <mat-form-field appearance="fill" style="width: 100%;">
-        <textarea matInput [(ngModel)]="morseInput"></textarea>
-    </mat-form-field>
-    <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px">
-        <button mat-flat-button color="primary" (click)="textToMorseClick()">Translate</button>
-        <button mat-flat-button color="primary" [disabled]="!controlArray" (click)="runFlasher()">Transmit</button>
+    <mat-card-header>
+        <mat-card-title>Morse Code Sender</mat-card-title>
+
+    </mat-card-header>
+    <div fxFill fxLayoutGap="10px">
+        <mat-form-field appearance="fill" fxFlex>
+            <mat-label>Message in English</mat-label>
+            <textarea matInput [(ngModel)]="morseInput"></textarea>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Dit Length</mat-label>
+            <input type="number" matInput [(ngModel)]="ditLength">   
+        </mat-form-field>
     </div>
-
-
+    <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px">
+        <button mat-flat-button color="primary" [disabled]="!morseInput" (click)="textToMorseClick()">Translate</button>
+        <button mat-flat-button color="primary" [disabled]="!controlArray" (click)="runFlasher()">Transmit</button>
+    </div>          
 
     <div *ngIf="morseOutput" class="morse-output">
         {{morseOutput}}

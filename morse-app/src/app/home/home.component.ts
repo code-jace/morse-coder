@@ -10,7 +10,7 @@ import { MorseControl } from '../model/MorseControl';
 })
 export class HomeComponent implements OnInit {
 
-  ditLength = 500;
+  ditLength = 300;
 
   morseInput = '';
   morseOutput = '';
